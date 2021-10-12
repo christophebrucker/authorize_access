@@ -7,8 +7,8 @@ mod incrementer {
 
     #[ink(storage)]
     pub struct Incrementer {
-        // ACTION: Add a `HashMap` from `AccountId` to `i32` named `my_value`
-        my_value: ink_storage::collections::HashMap<AccountId, i32>,
+        // ACTION: Add a `HashMap` from `AccountId` to `i32` named `my_value`!
+        my_value_map: ink_storage::collections::HashMap<AccountId, i32>,
     }
 
     impl Incrementer {
@@ -37,7 +37,7 @@ mod incrementer {
         }
 
         #[ink(message)]
-        pub fn get_mine(&self) -> i32 {
+        pub fn get_my_value(&self) -> i32 {
             // ACTION: Get `my_value` using `my_value_or_zero` on `&self.env().caller()`
             // ACTION: Return `my_value`
             let caller = self.env().caller();
