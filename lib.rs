@@ -1,53 +1,58 @@
+// This has been built with the original flipper smart contract code from Parity
+//
+// Copyright 2018-2021 Parity Technologies (UK) Ltd.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 #![cfg_attr(not(feature = "std"), no_std)]
 
 use ink_lang as ink;
 
 #[ink::contract]
-mod incrementer {
-
+pub mod authorize_access {
     #[ink(storage)]
-    pub struct Incrementer {
-        // ACTION: Add a `HashMap` from `AccountId` to `i32` named `my_value`!
-        my_value_map: ink_storage::collections::HashMap<AccountId, i32>,
+    pub struct AuthorizeAccess {
+        value: bool,
     }
 
-    impl Incrementer {
+    impl AuthorizeAccess {
+        /// Creates a new Authorize Acccess smart contract initialized with the given value.
         #[ink(constructor)]
-        pub fn new(init_value: i32) -> Self {
-            Self {
-                my_value: init_value,
-            }
+        pub fn new(init_value: bool) -> Self {
+            Self { value: init_value }
         }
 
+        /// Creates a new Authorize Access smart contract initialized to `false`.
         #[ink(constructor)]
         pub fn default() -> Self {
-            Self {
-                my_value: 0,
-            }
+            Self::new(Default::default())
         }
 
+        /// changes the current value of the Authorize Access's bool to true.
         #[ink(message)]
-        pub fn get(&self) -> i32 {
-            self.my_value
+        pub fn authorize_access(&mut self) {
+            self.value = true;
         }
 
+        /// changes the current value of the Authorize Access's bool to false.
         #[ink(message)]
-        pub fn inc(&mut self, by: i32) {
-            self.my_value += by;
+        pub fn revoke_access(&mut self) {
+            self.value = false;
         }
 
+        /// Returns the current value of the Authorize Access's bool.
         #[ink(message)]
-        pub fn get_my_value(&self) -> i32 {
-            // ACTION: Get `my_value` using `my_value_or_zero` on `&self.env().caller()`
-            // ACTION: Return `my_value`
-            let caller = self.env().caller();
-            self.my_value_or_zero(&caller)
-        }
-
-        fn my_value_or_zero(&self, of: &AccountId) -> i32 {
-            // ACTION: `get` and return the value of `of` and `unwrap_or` return 0
-            let value = self.my_value.get(of).unwrap_or(&0);
-            *value
+        pub fn get(&self) -> bool {
+            self.value
         }
     }
 
@@ -55,31 +60,20 @@ mod incrementer {
     mod tests {
         use super::*;
 
-        // Alias `ink_lang` so we can use `ink::test`.
-        use ink_lang as ink;
-
-        #[ink::test]
+        #[test]
         fn default_works() {
-            let contract = Incrementer::default();
-            assert_eq!(contract.get(), 0);
+            let authorize_access = AuthorizeAccess::default();
+            assert_eq!(authorize_access.get(), false);
         }
 
-        #[ink::test]
+        #[test]
         fn it_works() {
-            let mut contract = Incrementer::new(42);
-            assert_eq!(contract.get(), 42);
-            contract.inc(5);
-            assert_eq!(contract.get(), 47);
-            contract.inc(-50);
-            assert_eq!(contract.get(), -3);
-        }
-
-        // Use `ink::test` to initialize accounts.
-        #[ink::test]
-        fn my_value_works() {
-            let contract = Incrementer::new(11);
-            assert_eq!(contract.get(), 11);
-            assert_eq!(contract.get_mine(), 0);
+            let mut authorize_access = AuthorizeAccess::new(false);
+            assert_eq!(authorize_access.get(), false);
+            authorize_access.authorize_access();
+            assert_eq!(authorize_access.get(), true);
+            authorize_access.revoke_access();
+            assert_eq!(authorize_access.get(), false);
         }
     }
 }
