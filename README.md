@@ -1,7 +1,7 @@
 
 **Executive Summary**
 
-This paper aims at explaining the specifications of the diabmate platform. Healthcare data are rare and expensive. [Diabmate](www.diabmate.com) is giving patients a tool to better manage diabetes type 1/type 2 and  share information helping physicians, dieticians, nurses and researchers to do their jobs.
+This paper aims at explaining the specifications of the diabmate platform exchange protocol. Healthcare data are rare and expensive. [Diabmate](www.diabmate.com) is giving patients a tool to better manage diabetes type 1/type 2 and  share information helping physicians, dieticians, nurses and researchers to do their jobs.
 The medical staff directly involved in the treatment have access to the patient’s Electronic Health Record (EHR).
 Researchers can browse the anonymised information they would like to get and buy data from a market place.
 Family and friends involved in the patient disease treatment can have access to information in order to better understand what they can do to help the patient.
