@@ -45,13 +45,16 @@ This patient has the possibility to authorize and revoke access to his data. To 
 
 Evaluate pros/cons for the blockchain to be private / permissioned.
 Define the property of the Healthcare data lake
-Store on the blockchain the access granted by one patient as below :
-    (patient_id, data_address, timestamps)
+Store on the blockchain the access granted by one patient as a tuple (Rust data type) : (patient_id, data_address, timestamps)
 
+
+
 **Bibliography**
 
 1.Bitcoin: A Peer-to-Peer Electronic Cash System - Satoshi Nakamoto - 2008
-2.Ethereum White Paper - Updated version June 28th 2021
-3.Polkadot : Vision for a Heterogeneous multi-chain-framework - draft 1- Dr. Gavin Wood
-4.Attribute-based Multi-Signature and Encryption for EHR Management : a blockchain-based solution. Hao Guo - Wanxin Li - Ehsan Meamari - Chien-Chung Shen - Mark Nejad 1999
 
+2.Ethereum White Paper - Updated version June 28th 2021
+
+3.Polkadot : Vision for a Heterogeneous multi-chain-framework - draft 1- Dr. Gavin Wood
+
+4.Attribute-based Multi-Signature and Encryption for EHR Management : a blockchain-based solution. Hao Guo - Wanxin Li - Ehsan Meamari - Chien-Chung Shen - Mark Nejad 1999
