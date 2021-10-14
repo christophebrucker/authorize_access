@@ -43,9 +43,11 @@ This patient has the possibility to authorize and revoke access to his data. To 
 
 **4.Next Steps**
 
-Evaluate pros/cons for the blockchain to be private / permissioned.
-Define the property of the Healthcare data lake
-Store on the blockchain the access granted by one patient as a tuple (Rust data type) : (patient_id, data_address, timestamps)
+a.Evaluate pros/cons for the blockchain to be private / permissioned.
+
+b.Define the property of the Healthcare data lake
+
+c.Store on the blockchain the access granted by one patient as a tuple (Rust data type) : (patient_id, data_address, timestamps)
 
 
 
