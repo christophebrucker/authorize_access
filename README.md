@@ -50,7 +50,6 @@ b.Define the property of the Healthcare data lake
 c.Store on the blockchain the access granted by one patient as a tuple (Rust data type) : (patient_id, data_address, timestamps)
 
 
-
 **Bibliography**
 
 1.Bitcoin: A Peer-to-Peer Electronic Cash System - Satoshi Nakamoto - 2008
