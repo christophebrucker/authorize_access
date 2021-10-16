@@ -39,7 +39,7 @@ Our proposal involves the use of a blockchain as an access-control manager to he
 
 The first element we want to build is a network of nodes. We assume that one node is representing a patient. We use the Substrate’s node-template including pallet-contracts so that we can have to capability to include smart contracts.
 
-This patient has the possibility to authorize and revoke access to his data. To simplify the case, we write the smart contract has a simple boolean value being false by default. The smart contract written with Ink! gives the capability to change this value to true. The code for this contract is available at https://github.com/christophebrucker/authorize_access.
+This patient has the possibility to authorize and revoke access to his data. To simplify the case, we write the smart contract as a simple boolean value being false by default. The smart contract written with Ink! gives the capability to change this value to true. The code for this contract is available at https://github.com/christophebrucker/authorize_access.
 
 **4.Next Steps**
 
