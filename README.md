@@ -15,7 +15,8 @@ Thanks to the platform, patients can write four data types :
 1.glucose readings (time/value)
 2.insuline intakes (time/value)
 3.food (nutrients/time)
-4.activities ( category/time ).
+4.activities ( category/time )
+5.emotions (text/time)
 
 Glucose readings and insuline intakes may be obtained with sensors.
 
